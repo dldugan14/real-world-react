@@ -1,6 +1,6 @@
 import superagentPromise from "superagent-promise";
 import _superagent from "superagent";
-import ArticleList from "./components/ArticleList";
+//import ArticleList from "./components/ArticleList";
 
 const superagent = superagentPromise(_superagent, global.Promise);
 

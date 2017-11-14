@@ -20,9 +20,10 @@ const MainView = props => {
           </li>
         </ul>
       </div>
-      <ArticleList articles={props.articles} />
+      <ArticleList props={props}/>
     </div>
   );
 };
+
 
 export default connect(mapStateToProps)(MainView);
