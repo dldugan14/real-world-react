@@ -20,7 +20,7 @@ const MainView = props => {
           </li>
         </ul>
       </div>
-      <ArticleList props={props}/>
+      <ArticleList articles={props.articles}/>
     </div>
   );
 };

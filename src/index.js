@@ -12,12 +12,14 @@ const defaultState = {
 };
 
 const reducer = function(state = defaultState, action) {
-  
   switch (action.type) {
     case "HOME_PAGE_LOADED":
-    console.log(state);
-      console.log("yep");
-      return ({...state, articles: action.payload.articles});
+      console.log(action.payload);
+      return {
+        ...state,
+         articles: action.payload.articles,
+        articleCount: action.payload.articleCount
+        };
     default:
       return state;
   }

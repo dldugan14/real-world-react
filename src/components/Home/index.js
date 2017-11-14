@@ -20,13 +20,14 @@ class Home extends Component {
   componentWillMount() {
     this.props.onLoad(agent.Articles.all());
   }
+  
   render() {
     return (
       <div className="home-page">
         <Banner appName={this.props.appName} />
         <div className="container page">
           <div className="row">
-            <MainView props={this.props.articles} />
+            <MainView />
             <div className="col-md-3">
               <div className="sidebar">
                 <p>Popular Tags</p>

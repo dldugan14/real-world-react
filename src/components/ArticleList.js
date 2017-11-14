@@ -1,4 +1,5 @@
 import React from "react";
+import ArticlePreview from "./ArticlePreview";
 
 const ArticleList = props => {
   //fetching articles
@@ -16,9 +17,12 @@ const ArticleList = props => {
   //3rd, which is sweet, articles list stuff
   return (
     <div>
-      {props.articles.map(article => {
-        return <h2>{article.title}</h2>;
-      })}
+      {props.articles.map((article, index) => (
+        <div key={article.slug}>
+          <h2>{article.title}</h2>
+          <ArticlePreview article={article} />
+        </div>
+      ))}
     </div>
   );
 };
