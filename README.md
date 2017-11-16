@@ -1,3 +1,42 @@
+# list of crap to add to this project
+
+- conditional rendering of appname on sign in and register pages 
+- password verification on sign up 
+- styling 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # ![React + Redux Example App](project-logo.png)
 
 > Example React + Redux codebase that adheres to the [RealWorld](https://github.com/gothinkster/realworld-example-apps) spec and API.
