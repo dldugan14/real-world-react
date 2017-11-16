@@ -1,27 +1,22 @@
+import { createStore, applyMiddleware, combineReducers, compose } from "redux";
+import { promiseMiddleware, localStorageMiddleware } from "./middleware";
 
-import { createStore, applyMiddleware } from "redux";
-import { promiseMiddleware } from "./middleware";
+import auth from "./reducers/auth";
+import common from "./reducers/common";
+import home from "./reducers/home";
 
-const defaultState = {
-  appName: "Meowdium",
-  articles: null
-};
+const reducer = combineReducers({
+  auth,
+  common,
+  home
+});
 
-const reducer = function(state = defaultState, action) {
-  switch (action.type) {
-    case "HOME_PAGE_LOADED":
-      console.log(action.payload);
-      return {
-        ...state,
-         articles: action.payload.articles,
-        articleCount: action.payload.articleCount
-        };
-    default:
-      return state;
-  }
-};
-const middleware = applyMiddleware(promiseMiddleware);
-
-const store = createStore(reducer, middleware);
+const store = createStore(
+  reducer,
+  compose(
+    applyMiddleware(promiseMiddleware, localStorageMiddleware),
+    window.devToolsExtension ? window.devToolsExtension() : f => f
+  )
+);
 
 export default store;

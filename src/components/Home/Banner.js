@@ -1,9 +1,4 @@
 import React from "react";
-/*
-const Banner = props => {
-const appName = props.appName;
-...
-*/
 
 const Banner = ({ appName }) => {
   return (

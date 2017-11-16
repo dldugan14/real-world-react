@@ -5,11 +5,10 @@ import Banner from "./Banner";
 
 import agent from "../../agent";
 
-//const Promise = global.Promise;
+const Promise = global.Promise;
 
 const mapStateToProps = state => ({
-  appName: state.appName
-  
+  appName: state.common.appName
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -20,7 +19,6 @@ class Home extends Component {
   componentWillMount() {
     this.props.onLoad(agent.Articles.all());
   }
-  
   render() {
     return (
       <div className="home-page">

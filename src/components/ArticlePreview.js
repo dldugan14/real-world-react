@@ -1,7 +1,6 @@
 import React from "react";
 
 const ArticlePreview = ({ article }) => {
-  // const article = props.article;
   return (
     <div className="article-preview">
       <div className="article-meta">

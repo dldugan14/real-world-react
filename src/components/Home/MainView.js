@@ -1,11 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 
-//shared component
 import ArticleList from "../ArticleList";
 
 const mapStateToProps = state => ({
-  articles: state.articles
+  articles: state.home.articles
 });
 
 const MainView = props => {
@@ -20,10 +19,9 @@ const MainView = props => {
           </li>
         </ul>
       </div>
-      <ArticleList articles={props.articles}/>
+      <ArticleList articles={props.articles} />
     </div>
   );
 };
-
 
 export default connect(mapStateToProps)(MainView);
