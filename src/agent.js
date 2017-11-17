@@ -1,6 +1,5 @@
 import superagentPromise from "superagent-promise";
 import _superagent from "superagent";
-import { request } from "http";
 
 const superagent = superagentPromise(_superagent, global.Promise);
 
@@ -24,11 +23,17 @@ const requests = {
     superagent
       .post(`${API_ROOT}${url}`, body)
       .use(tokenPlugin)
+      .then(responseBody),
+  put: (url, body) =>
+    superagent
+      .put(`${API_ROOT}${url}`, body)
+      .use(tokenPlugin)
       .then(responseBody)
 };
 
 const Articles = {
-  all: page => requests.get(`/articles?limit=10`)
+  all: page => requests.get(`/articles?limit=10`),
+  get: slug => requests.get(`/articles/${slug}`)
 };
 
 const Auth = {
@@ -36,12 +41,18 @@ const Auth = {
   login: (email, password) =>
     requests.post("/users/login", { user: { email, password } }),
   register: (username, email, password) =>
-    requests.post("/users", { user: { username, email, password } })
+    requests.post("/users", { user: { username, email, password } }),
+  save: user => requests.put("/user", { user })
+};
+
+const Comments = {
+  forArticle: slug => requests.get(`/articles/${slug}/comments`)
 };
 
 export default {
   Articles,
   Auth,
+  Comments,
   setToken: _token => {
     token = _token;
   }

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router";
 
+//const defaultImgURL = "http://freepngimages.com/wp-content/uploads/2015/06/kitten-playing.png";
+
 const LoggedOutView = props => {
   if (!props.currentUser) {
     return (
@@ -52,7 +54,11 @@ const LoggedInView = ({ currentUser }) => {
 
         <li className="nav-item">
           <Link to={`@${currentUser.username}`} className="nav-link">
-            <img src={currentUser.image} className="user-pic" />
+            <img
+              src={currentUser.image }
+              alt={"user profile"}
+              className="user-pic"
+            />
             {currentUser.username}
           </Link>
         </li>
@@ -81,5 +87,5 @@ class Header extends Component {
     );
   }
 }
-
+//|| defaultImgURL
 export default Header;
