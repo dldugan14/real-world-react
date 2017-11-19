@@ -17,10 +17,6 @@ const mapDispatchToProps = dispatch => ({
 
 class Article extends Component {
   componentWillMount() {
-    /*
-    we'll need to get article by slug from the url
-    and the comments for this. 2 promises. ummmmm
-    */
     const articleId = this.props.params.id;
     this.props.onLoad(
       Promise.all([
@@ -30,9 +26,6 @@ class Article extends Component {
     );
   }
 
-  /*
-marked is a library that compiles markdown into HTML - in order to get react to render raw HTML, we need to use this dangerouslySetInnerHTML property, because React sanitizes HTML by default.
-  */
   render() {
     const article = this.props.article;
     if (!article) {
