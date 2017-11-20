@@ -1,9 +1,16 @@
-# list of crap to add to this project
+# list of crap added to this project
 
-- conditional rendering of appname on sign in and register pages 
-- password verification on sign up 
+- conditionally rended appname  
 - styling 
+- adjusted the spacing between global feline and the start of the articles
 
+# list of crap I need help with 
+- like button 
+  * Do I have to convert it to a smart component
+  * put?
+- password verification on sign up
+  * how does ListErrors work 
+  * are the errors coming from the input types?
 
 
 

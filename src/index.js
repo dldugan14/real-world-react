@@ -13,6 +13,7 @@ import Register from "./components/Register";
 import index from "./components/Settings/index";
 import Editor from "./components/Editor"
 
+
 ReactDOM.render(
   <Provider store={store}>
     <Router history={hashHistory}>
@@ -24,6 +25,7 @@ ReactDOM.render(
         <Route path="article/:id" component={Article} />
         <Route path="editor" component={Editor} />
         <Route path="editor/:slug" component={Editor} />
+        
       </Route>
     </Router>
   </Provider>,

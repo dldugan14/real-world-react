@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router";
 
 const ArticlePreview = ({ article }) => {
-  // const article = props.article;
+   //const article = props.article;
+  
   return (
     <div className="article-preview">
       <div className="article-meta">
@@ -22,7 +23,7 @@ const ArticlePreview = ({ article }) => {
         <div className="pull-xs-right">
           <button className="btn btn-sm btn-outline-primary">
             <i className="ion-heart" />
-            {article.favoritesCount}
+            {" " + article.favoritesCount}
           </button>
         </div>
       </div>

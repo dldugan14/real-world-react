@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router";
 
-//const defaultImgURL = "http://freepngimages.com/wp-content/uploads/2015/06/kitten-playing.png";
+
 
 const LoggedOutView = props => {
   if (!props.currentUser) {
@@ -74,9 +74,9 @@ class Header extends Component {
       <div>
         <nav className="nav navbar-light">
           <div className="container">
-            <Link to="/" className="navbar-brand">
+            {!this.props.isroot && <Link to="/" className="navbar-brand">
               {this.props.appName.toLowerCase()}
-            </Link>
+            </Link>}
 
             <LoggedOutView currentUser={this.props.currentUser} />
 

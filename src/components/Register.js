@@ -5,6 +5,7 @@ import { Link } from "react-router";
 import agent from "../agent";
 import ListErrors from "./ListErrors";
 
+
 //any of the properties on store auth will be spread out to props of the
 //login component
 const mapStateToProps = state => ({ ...state.auth });
@@ -16,11 +17,13 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
+
 class Register extends Component {
   state = {
     username: "",
     email: "",
-    password: ""
+    password: "",
+    confirmPassword: ""
   };
   handleInputChange = event => {
     const targetName = event.target.name;
@@ -29,15 +32,19 @@ class Register extends Component {
       [targetName]: event.target.value
     });
   };
-
+  
+  
+  
   submitForm = event => {
     event.preventDefault();
-    const { username, email, password } = this.state;
+    const { username, email, password, confirmPassword} = this.state;
+    if (confirmPassword === password){
     this.props.onSubmit(username, email, password);
+    }
   };
 
   render() {
-    const { username, email, password } = this.state;
+    const { username, email, password, confirmPassword } = this.state;
     return (
       <div className="auth-page">
         <div className="container page">
@@ -49,6 +56,8 @@ class Register extends Component {
               </p>
 
               <ListErrors errors={this.props.errors} />
+              
+                         
 
               <form onSubmit={e => this.submitForm(e)}>
                 <fieldset>
@@ -81,6 +90,17 @@ class Register extends Component {
                       name="password"
                       placeholder="Password"
                       value={password}
+                      onChange={this.handleInputChange}
+                    />
+                  </fieldset>
+
+                  <fieldset className="form-group">
+                    <input
+                      className="form-control form-control-lg"
+                      type="password"
+                      name="confirmPassword"
+                      placeholder="confrim Password"
+                      value={confirmPassword}
                       onChange={this.handleInputChange}
                     />
                   </fieldset>

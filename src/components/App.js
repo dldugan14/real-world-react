@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
+
 import agent from "../agent";
 import Header from "./Header";
 
@@ -35,12 +36,16 @@ class App extends Component {
 
   render() {
     //determine URL Param isRoot?
+    var isroot = false;
+    if(this.props.location.pathname === "/"){
+      isroot=true;
+    }
     const appName = this.props.appName;
     return (
       <div>
         <Header
           appName={appName}
-          rootURL={true}
+          isroot={isroot}
           currentUser={this.props.currentUser}
         />
         {this.props.children}

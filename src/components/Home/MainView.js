@@ -17,8 +17,9 @@ const MainView = props => {
               Global Feline
             </a>
           </li>
-        </ul>
+        </ul> 
       </div>
+      <br/>
       <ArticleList articles={props.articles} />
     </div>
   );
